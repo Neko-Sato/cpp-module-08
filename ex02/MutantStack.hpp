@@ -6,7 +6,7 @@
 /*   By: hshimizu <hshimizu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 14:01:48 by hshimizu          #+#    #+#             */
-/*   Updated: 2024/09/12 22:19:57 by hshimizu         ###   ########.fr       */
+/*   Updated: 2024/09/12 22:21:57 by hshimizu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #ifndef __MUTANTSTACK_HPP__
 #define __MUTANTSTACK_HPP__
 
-#include <deque>
 #include <stack>
 
 template <typename T> class MutantStack : public std::stack<T> {
