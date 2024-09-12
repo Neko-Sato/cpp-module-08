@@ -6,7 +6,7 @@
 /*   By: hshimizu <hshimizu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 14:01:48 by hshimizu          #+#    #+#             */
-/*   Updated: 2024/08/25 14:47:21 by hshimizu         ###   ########.fr       */
+/*   Updated: 2024/09/12 22:19:57 by hshimizu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,20 @@
 #include <deque>
 #include <stack>
 
-template <typename T, typename Sequence = std::deque<T> >
-class MutantStack : public std::stack<T, Sequence> {
+template <typename T> class MutantStack : public std::stack<T> {
 private:
 public:
-  typedef typename Sequence::iterator iterator;
-  typedef typename Sequence::const_iterator const_iterator;
+  typedef typename std::stack<T>::container_type::iterator iterator;
+  typedef typename std::stack<T>::container_type::const_iterator const_iterator;
 
-  MutantStack() : std::stack<T, Sequence>() {
+  MutantStack() : std::stack<T>() {
   }
-  MutantStack(MutantStack const &other) : std::stack<T, Sequence>(other) {
+  MutantStack(MutantStack<T> const &other) : std::stack<T>(other) {
   }
   ~MutantStack() {
   }
-  MutantStack &operator=(MutantStack const &other) {
-    return std::stack<T, Sequence>::operator=(other);
+  MutantStack<T> &operator=(MutantStack<T> const &other) {
+    return std::stack<T>::operator=(other);
   }
 
   iterator begin() {
@@ -46,7 +45,7 @@ public:
   const_iterator end() const {
     return this->c.end();
   }
-  void push(const T &value) {
+  void push(T const &value) {
     this->c.push_back(value);
   }
   void pop() {
