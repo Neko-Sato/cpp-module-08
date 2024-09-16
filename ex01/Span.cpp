@@ -6,13 +6,11 @@
 /*   By: hshimizu <hshimizu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 13:16:42 by hshimizu          #+#    #+#             */
-/*   Updated: 2024/08/25 13:57:14 by hshimizu         ###   ########.fr       */
+/*   Updated: 2024/09/16 15:44:50 by hshimizu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include <exception>
-#include <stdexcept>
 
 Span::Span(unsigned int N) : _maxsize(N), _numbers() {
 }
