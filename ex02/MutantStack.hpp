@@ -6,7 +6,7 @@
 /*   By: hshimizu <hshimizu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 14:01:48 by hshimizu          #+#    #+#             */
-/*   Updated: 2024/09/12 22:21:57 by hshimizu         ###   ########.fr       */
+/*   Updated: 2024/09/16 15:27:42 by hshimizu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,6 @@ public:
   }
   const_iterator end() const {
     return this->c.end();
-  }
-  void push(T const &value) {
-    this->c.push_back(value);
-  }
-  void pop() {
-    this->c.pop_back();
   }
 };
 
