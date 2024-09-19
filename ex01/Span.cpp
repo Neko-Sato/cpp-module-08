@@ -6,7 +6,7 @@
 /*   By: hshimizu <hshimizu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 13:16:42 by hshimizu          #+#    #+#             */
-/*   Updated: 2024/09/16 15:44:50 by hshimizu         ###   ########.fr       */
+/*   Updated: 2024/09/20 04:35:47 by hshimizu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,14 @@ unsigned int Span::shortestSpan() const {
   if (_numbers.size() <= 1)
     throw std::logic_error("Span element is missing");
   unsigned int min = -1;
-  for (std::multiset<int>::iterator it = _numbers.begin(); it != _numbers.end();
-       ++it) {
-    unsigned int diff = *(++it) - *(--it);
-    if (diff < min)
-      min = diff;
+  {
+    std::multiset<int>::iterator it = _numbers.begin();
+    std::multiset<int>::iterator pre = it++;
+    for (; it != _numbers.end(); ++it, ++pre) {
+      unsigned int diff = *it - *pre;
+      if (diff < min)
+        min = diff;
+    }
   }
   return min;
 }
@@ -52,6 +55,5 @@ unsigned int Span::shortestSpan() const {
 unsigned int Span::longestSpan() const {
   if (_numbers.size() <= 1)
     throw std::logic_error("Span element is missing");
-  std::multiset<int>::iterator end = _numbers.end();
-  return (*--end - *_numbers.begin());
+  return (*--_numbers.end() - *_numbers.begin());
 }
